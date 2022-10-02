@@ -30,7 +30,7 @@ def suggestion(cursor, list, dict):
     for item in types:
         if 1 <= len(set(list)&set(item)):
             for i in item:
-                if i not in list and i != "null" and i != item[num][0]:
+                if i not in list and i != "null" and i != item[0]:
                     new_list.append(i)
         num+=1
     
