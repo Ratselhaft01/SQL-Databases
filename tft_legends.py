@@ -68,7 +68,7 @@ while choice != "quit":
         table = input("Table: ")
         name = input("Name/Type: ")
         thing = input("What do you want to change: ")
-        change = float(input("The Change: "))
+        change = input("The Change: ")
         values = (change, name)
         cursor.execute(f"UPDATE {table} SET {thing} = ? WHERE name = ?", values)
         connection.commit()
@@ -155,5 +155,9 @@ while choice != "quit":
                 run_types[types[num][0]] = 1 + run_types.get(types[num][0])
             num+=1
         
-    
+    elif choice == "11":
+        thing = input("Max Champion: ")
+        cursor.execute(f"SELECT MAX({thing}) FROM champions;")
+        print(cursor.fetchall())
+
     else: choice = "quit"
